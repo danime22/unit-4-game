@@ -72,7 +72,7 @@ section {
     border: 1px;
     border-radius: 5px;
     position: relative;
-    height: 50px;
+    height: 78px;
     margin-top: 2px;
     color: white;
     font-weight: bold;
@@ -129,4 +129,8 @@ meter {
 
 button {
     margin-left: 36px;
+}
+
+span {
+    font-size: 17px;
 }

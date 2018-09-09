@@ -1,21 +1,35 @@
-$(document).ready(function() {
+
+var matrix = {
+        character: {
+            name: ["neo", "trinity", "morpheus", "agent smith"]
+        },
+        weapon: {
+            weapy: ["", "", "", ""]
+        }
+
+}
+
+// var attack="";
+var character1 = "";
+var character2 = "";
+var weapons = "";
+var damage = "";
+var life= "";
+
+
+
+$(document).ready(function () {
     var characters = {
 
     }
 
-    var character1= "";
-    var character2= "";
-    var weapon="";
+
+    $(".butt").on("click", function () {
+        // alert("hey");
+        $()
+    })
 
 
 
-
-
-$(".butt").on("click", function( ) {
-    alert("hey");
-})
-
-
-
-}); 
+});
 
