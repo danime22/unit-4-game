@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -19,50 +21,70 @@
                 <div>
                     <div class="card">
                         <h5 class="card-title">Choose your character</h5>
+
                         <div class="card-body">
-                            <button>
-                                <img src="assets/images/77f7b4d43169e2d992020bb925d4deb3--andy-wachowski--hours.jpg" alt="neo">
-                            </button>
-                            <button>
-                                <img src="assets/images/Trinity-Matrix-Carrie-Anne-Moss.jpg" alt="trinity">
-                            </button>
-                            <button><img src="assets/images/Agent-smith-the-matrix-movie-hd-wallpaper-2880x1800-4710.png" alt="agent smith"></button>
-                            <button>
-                                <img src="assets/images/matrix-morpheus.jpg" alt="morpheus">
-                            </button>
-                            <br>
-                            <br>
-                            <h5 class="card-title">Choose your weapon</h5>
-                            <button>
-                                <img src="assets/images/350px-MP5KModified.jpg" alt="neo">
-                            </button>
-                            <button>
-                                <img src="assets/images/il_340x270.1539067084_68ga.jpg" alt="trinity">
-                            </button>
-                            <button>
-                                <img src="assets/images/image_7_18503.jpg" alt="agent smith">
-                            </button>
-                            <button>
-                                <img src="assets/images/301d006813b7b7c00c10319b64245391.jpg" alt="morpheus">
-                            </button>
+                            <div id="holder">
+                                <button class="butt">
+                                    <img src="assets/images/77f7b4d43169e2d992020bb925d4deb3--andy-wachowski--hours.jpg" class="char" alt="neo">
+                                    <p class="trinity">NEO</p>
+                                </button>
+                                <button class="butt">
+                                    <img src="assets/images/Trinity-Matrix-Carrie-Anne-Moss.jpg" class="char" alt="trinity">
+                                    <p class="trinity">TRINITY</p>
+                                </button>
+                                <button class="butt"><img src="assets/images/Agent-smith-the-matrix-movie-hd-wallpaper-2880x1800-4710.png"
+                                        class="char" alt="agent smith"> <p class="trinity">AGENT SMITH</p></button>
+
+                                <button class="butt">
+                                    <img src="assets/images/matrix-morpheus.jpg" class="char" alt="morpheus">
+                                    <p class="trinity">MORPHEUS</p>
+                                </button>
+                                <br>
+                                <br>
+                                <h5 class="card-title">Choose your weapon</h5>
+                                <button class="butt">
+                                    <img src="assets/images/350px-MP5KModified.jpg" class=" weapon" alt="neo">
+                                </button>
+                                <button class="butt">
+                                    <img src="assets/images/il_340x270.1539067084_68ga.jpg" class="weapon" alt="trinity">
+                                </button>
+                                <button class="butt">
+                                    <img src="assets/images/image_7_18503.jpg" class="weapon" alt="agent smith">
+                                </button>
+                                <button class="butt">
+                                    <img src="assets/images/301d006813b7b7c00c10319b64245391.jpg" class="weapon" alt="morpheus">
+                                </button>
+
+                                <div id="battle">
+                                    &nbsp;
+                                </div>
+                            </div>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                        <div>
+                            <p class="chosenChar">Character:</p>
+                            <div><meter min="0"  max="100" value="70"></meter></div>
+                            
                         </div>
+                        <div>
+                            <p class="chosenEnemy">Enemy:</p>
+                            <meter min="0"  max="100" value="80"></meter>
+                            
+                            <!-- <p>&nap;</p> -->
+                        </div>
+                        <button type="button" class="attack">Attack</button>
+                        <!-- <div class="card-body">
+
+                            
+
+                        </div> -->
                     </div>
                 </div>
+
+
             </div>
-
         </div>
-    </div>
 
-    <script src="assets/javascript/game.js"></script>
+        <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>

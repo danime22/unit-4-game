@@ -7,26 +7,105 @@ body {
 }
 
 .row {
-    border: 3px solid black;
+    border: 3px solid white;
+    /* background-color: #6CA03B; */
+    margin-top: 3%;
 }
 
 img {
     height: 200px;
     width: 200px;
+   
+    
+    
+}
+
+section {
+    width: 100%;
+    /* height: 300%; */
+    margin: 0 auto;
+    /* background-color: black; */
+    
+    /* float: none; 
+   opacity: 0.3;  */
 }
 
 .card {
-    width: 100%;
-    height: 890px;
-    margin: 0 auto;
-    /* float: none; */
+    background: rgba(250,250,250,0.1)
+    /* opacity: 0.2; */
+    
+}
+
+
+
+.weapon {
+    height: 100px;
+    
+
 }
 
 .card-title {
     text-align: center;
+    color: aliceblue;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.7);
 }
 
-.card {
-    opacity: 0.3;
+/* .card-body {
+    /* background: rgba(51,51,51,0.2) */
+    /* opacity: 0.3;; */
+    /* content: ""; */
+    /* position: absolute; */
+    /* z-index: 1;
+   
     
+    opacity: 0.2; */
+
+
+
+
+
+
+.trinity {
+    background: #447717;
+    border: 1px;
+    border-radius: 5px;
+    position: relative;
+    height: 50px;
+    margin-top: 2px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Baloo Tammudu', cursive;
+    font-size: 30PX;
+    padding: 10px;
+    
+}
+
+
+
+.chosenChar, .chosenEnemy {
+    border: 2px solid black;
+    width: 90px;
+    padding: 5px;
+    height: 40px;
+    font-family: 'Baloo Tammudu', cursive;
+    background: #6CA03B;
+    color: white;
+    position: relative;
+}
+.attack {
+background-color:#447717;
+width: 90px;
+border-radius: 5px;
+color: aliceblue;
+font-family: 'Baloo Tammudu', cursive;
+}
+
+meter {
+    height: 36px;
+    position: relative;
+    float:left;
+    top: -18px;
+    margin-left: 3px;
+    width: 60%;
 }
