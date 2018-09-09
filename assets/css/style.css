@@ -39,7 +39,8 @@ section {
 
 
 .weapon {
-    height: 100px;
+    height: 71px;
+    width: 75px;
     
 
 }
@@ -75,8 +76,11 @@ section {
     margin-top: 2px;
     color: white;
     font-weight: bold;
-    font-family: 'Baloo Tammudu', cursive;
-    font-size: 30PX;
+    /* font-family: 'Baloo Tammudu', cursive; */
+    font-family: 'Vollkorn', serif;
+font-family: 'Audiowide', cursive;
+
+    font-size: 24px;;
     padding: 10px;
     
 }
@@ -85,10 +89,13 @@ section {
 
 .chosenChar, .chosenEnemy {
     border: 2px solid black;
-    width: 90px;
+    width: 110px;
     padding: 5px;
     height: 40px;
-    font-family: 'Baloo Tammudu', cursive;
+    /* font-family: 'Baloo Tammudu', cursive; */
+    font-family: 'Vollkorn', serif;
+font-family: 'Audiowide', cursive;
+
     background: #6CA03B;
     color: white;
     position: relative;
@@ -98,7 +105,10 @@ background-color:#447717;
 width: 90px;
 border-radius: 5px;
 color: aliceblue;
-font-family: 'Baloo Tammudu', cursive;
+/* font-family: 'Baloo Tammudu', cursive; */
+font-family: 'Vollkorn', serif;
+font-family: 'Audiowide', cursive;
+
 }
 
 meter {
@@ -108,4 +118,15 @@ meter {
     top: -18px;
     margin-left: 3px;
     width: 65%;
+}
+
+.place1, .place2 {
+    height: 300px;
+    width: 250px;
+}
+
+
+
+button {
+    margin-left: 36px;
 }
