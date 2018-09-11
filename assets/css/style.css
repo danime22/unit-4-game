@@ -89,7 +89,7 @@ font-family: 'Audiowide', cursive;
 
 .chosenChar, .chosenEnemy {
     border: 2px solid black;
-    width: 110px;
+    width: 120px;
     padding: 5px;
     height: 40px;
     /* font-family: 'Baloo Tammudu', cursive; */
