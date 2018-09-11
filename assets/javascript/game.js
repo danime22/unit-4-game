@@ -98,15 +98,17 @@ $(document).ready(function () {
     $("#neo1").on("click", function () {
 
         if (matrixState.userChosen) {
-
+           
             $("#neo1").css("background-color", "red");
             $("#neo1").appendTo("#charEnemy");
+            $('.char1').attr('src','assets/images/587655603d491111d0d3be249bfafa5c.png');
 
         } else {
 
             $("#neo1").appendTo("#charSelect");
-
+            
             $("#neo1").css("background-color", "white");
+            $('.char1').attr('src','assets/images/587655603d491111d0d3be249bfafa5c.png');
             matrixState.userChosen = true;
 
         }
@@ -119,11 +121,14 @@ $(document).ready(function () {
     $("#trinity1").on("click", function () {
 
         if (matrixState.userChosen) {
-
+           
+            $('.char2').attr('src','assets/images/images (1).jpeg');
             $("#trinity1").css("background-color", "red");
             $("#trinity1").appendTo("#charEnemy");
 
         } else {
+         
+            $('.char2').attr('src','assets/images/images (1).jpeg');
             $("#trinity1").appendTo("#charSelect");
             $("#trinity1").css("background-color", "white");
             matrixState.userChosen = true;
@@ -136,11 +141,15 @@ $(document).ready(function () {
     $("#agent1").on("click", function () {
 
         if (matrixState.userChosen) {
-
+           
+         
+            $('.char3').attr('src','assets/images/p1159_1.jpg');
             $("#agent1").css("background-color", "red");
             $("#agent1").appendTo("#charEnemy");
 
         } else {
+           
+            $('.char3').attr('src','assets/images/p1159_1.jpg');
             $("#agent1").appendTo("#charSelect");
             $("#agent1").css("background-color", "white");
             matrixState.userChosen = true;
@@ -153,11 +162,14 @@ $(document).ready(function () {
     $("#morpheus1").on("click", function () {
         ;
         if (matrixState.userChosen) {
-
+         
+            $('.char4').attr('src','assets/images/images.jpeg');
             $("#morpheus1").css("background-color", "red")
             $("#morpheus1").appendTo("#charEnemy");
 
         } else {
+          
+            $('.char4').attr('src','assets/images/images.jpeg');
             $("#morpheus1").appendTo("#charSelect");
             $("#morpheus1").css("background-color", "white");
             matrixState.userChosen = true;
@@ -179,6 +191,7 @@ function setText() {
 
 function idk() {
     if ($(".attack").on("click", function () {
-        chosenCharacter += matrix.name.chosenLife - chosenE
+        chosenCharacter += matrix.name.chosenLife;
+        chosenCharacter--;
     }));
 }

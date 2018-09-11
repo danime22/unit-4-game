@@ -100,6 +100,14 @@ font-family: 'Audiowide', cursive;
     color: white;
     position: relative;
 }
+
+#charSelect {
+    background-image: url("../images/green-matrix-background_r1gl8-f__F0000\ \(1\).png");
+}
+
+#charEnemy {
+    background-image: url("../images/red-matrix-background_r1ehslf__F0000.png");
+}
 .attack {
 background-color:#447717;
 width: 90px;
@@ -108,7 +116,18 @@ color: aliceblue;
 /* font-family: 'Baloo Tammudu', cursive; */
 font-family: 'Vollkorn', serif;
 font-family: 'Audiowide', cursive;
+margin-left: -65%;
 
+}
+.reset {
+    margin-left: 0.5%;
+    background-color:#447717;
+width: 90px;
+border-radius: 5px;
+color: aliceblue;
+/* font-family: 'Baloo Tammudu', cursive; */
+font-family: 'Vollkorn', serif;
+font-family: 'Audiowide', cursive;
 }
 
 meter {
