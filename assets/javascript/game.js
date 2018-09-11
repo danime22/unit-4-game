@@ -65,6 +65,7 @@ var weapon = [
 
     }
 ];
+//Global variables
 
 var matrixState = {
     chosenCharacter: "",
@@ -77,19 +78,6 @@ var matrixState = {
 
 }
 
-
-// }
-// var character1 = "";
-// var character2 = "";
-// var weapons = "";
-// var damage = 0;
-// var life= 0;
-// var userChosen = false;
-// var attacked = 0;
-
-
-
-// $("myAudio").src=matrix.song;
 
 $(document).ready(function () {
 
@@ -178,9 +166,66 @@ $(document).ready(function () {
         $("#span4").remove();
 
     });
-
+    
+    // idk();
 
 });
+
+// function idk() {
+//     $(".attack").on("click", function () {
+//         alert("hey");
+
+//         defenderLife = matrix.chosenLife;
+
+        
+//         // chosenCharacter = matrix.name;
+//         defenderLife--;
+        
+        
+//     });
+// }
+
+// function idk1() {
+//     $(".reset").on("click", function(){
+//         alert("hello");
+      
+//     });
+// }
+
+// idk1();
+
+$(".reset").on("click", function() {
+  alert("what");
+})
+
+$(".attack").on("click", function () {
+    // alert("why");
+  var cho = "";
+  matrixState.chosenCharacter == matrix.name;
+  for (i=0; i< matrix.length; i++) {
+      matrix.indexOf(i);
+  }
+//   matrix.chosenLife === matrixState.chosenLife;
+  
+    console.log(cho);
+    // getCharacter()
+})
+// function getCharacter() {
+//     var chosenCharacter = "";
+//     for (i=0; i<matrix.length; i++) {
+//         matrix.indexOf(i) >= 0;
+
+//     //     if(matrix.indexOf(i)>=0) {
+//     //         chosenCharacter+="";
+//     //     } else {
+//     //         chosenCharacter+=matrix.name[i];
+//     //     }
+//     // }
+
+//     return chosenCharacter;
+// }
+
+
 
 function setText() {
     var set = $(".card-title").text("Choose Your Defender");
@@ -189,9 +234,14 @@ function setText() {
 
 }
 
-function idk() {
-    if ($(".attack").on("click", function () {
-        chosenCharacter += matrix.name.chosenLife;
-        chosenCharacter--;
-    }));
-}
+
+
+
+// function initializeMatrix () {
+//     var mat = matrix[matrixState.chosenLife].name;
+
+//     matrix.userChosen = true;
+//     matrixState.chosenLife
+
+// }
+
