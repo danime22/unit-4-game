@@ -4,7 +4,7 @@ var matrix = [
         name: "NEO",
         startingAttack: 0,
         enemyAttack: 0,
-        chosenLife: 150,
+        starting: 150,
         line: ""
 
 
@@ -13,7 +13,7 @@ var matrix = [
         name: "TRINITY",
         startingAttack: 0,
         enemyAttack: 0,
-        chosenLife: 100,
+        starting: 100,
         line: ""
 
 
@@ -23,7 +23,7 @@ var matrix = [
         name: "AGENT SMITH",
         startingAttack: 0,
         enemyAttack: 0,
-        chosenLife: 200,
+        startingLife: 200,
         line: ""
 
 
@@ -201,10 +201,13 @@ $(".reset").on("click", function() {
 $(".attack").on("click", function () {
     // alert("why");
   var cho = "";
-  matrixState.chosenCharacter == matrix.name;
-  for (i=0; i< matrix.length; i++) {
-      matrix.indexOf(i);
-  }
+//   matrixState.chosenCharacter == matrix.name;
+//   for (i=0; i< matrix.length; i++) {
+//       matrix.indexOf(i);
+//   }
+
+matrixState.chosenCharacter = matrix[0];
+cho= matrixState.chosenCharacter;
 //   matrix.chosenLife === matrixState.chosenLife;
   
     console.log(cho);
@@ -234,6 +237,10 @@ function setText() {
 
 }
 
+
+function reset() {
+
+}
 
 
 
