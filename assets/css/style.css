@@ -101,6 +101,10 @@ font-family: 'Audiowide', cursive;
     position: relative;
 }
 
+#hide {
+    visibility: hidden;
+}
+
 #charSelect {
     background-image: url("../images/green-matrix-background_r1gl8-f__F0000\ \(1\).png");
 }

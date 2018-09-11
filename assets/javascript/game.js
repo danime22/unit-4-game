@@ -4,7 +4,7 @@ var matrix = [
         name: "NEO",
         startingAttack: 0,
         enemyAttack: 0,
-        starting: 150,
+        startingLife: 150,
         line: ""
 
 
@@ -13,7 +13,7 @@ var matrix = [
         name: "TRINITY",
         startingAttack: 0,
         enemyAttack: 0,
-        starting: 100,
+        startingLife: 100,
         line: ""
 
 
@@ -86,17 +86,17 @@ $(document).ready(function () {
     $("#neo1").on("click", function () {
 
         if (matrixState.userChosen) {
-           
+
             $("#neo1").css("background-color", "red");
             $("#neo1").appendTo("#charEnemy");
-            $('.char1').attr('src','assets/images/587655603d491111d0d3be249bfafa5c.png');
+            $('.char1').attr('src', 'assets/images/587655603d491111d0d3be249bfafa5c.png');
 
         } else {
 
             $("#neo1").appendTo("#charSelect");
-            
+
             $("#neo1").css("background-color", "white");
-            $('.char1').attr('src','assets/images/587655603d491111d0d3be249bfafa5c.png');
+            $('.char1').attr('src', 'assets/images/587655603d491111d0d3be249bfafa5c.png');
             matrixState.userChosen = true;
 
         }
@@ -109,14 +109,14 @@ $(document).ready(function () {
     $("#trinity1").on("click", function () {
 
         if (matrixState.userChosen) {
-           
-            $('.char2').attr('src','assets/images/images (1).jpeg');
+
+            $('.char2').attr('src', 'assets/images/images (1).jpeg');
             $("#trinity1").css("background-color", "red");
             $("#trinity1").appendTo("#charEnemy");
 
         } else {
-         
-            $('.char2').attr('src','assets/images/images (1).jpeg');
+
+            $('.char2').attr('src', 'assets/images/images (1).jpeg');
             $("#trinity1").appendTo("#charSelect");
             $("#trinity1").css("background-color", "white");
             matrixState.userChosen = true;
@@ -129,15 +129,15 @@ $(document).ready(function () {
     $("#agent1").on("click", function () {
 
         if (matrixState.userChosen) {
-           
-         
-            $('.char3').attr('src','assets/images/p1159_1.jpg');
+
+
+            $('.char3').attr('src', 'assets/images/p1159_1.jpg');
             $("#agent1").css("background-color", "red");
             $("#agent1").appendTo("#charEnemy");
 
         } else {
-           
-            $('.char3').attr('src','assets/images/p1159_1.jpg');
+
+            $('.char3').attr('src', 'assets/images/p1159_1.jpg');
             $("#agent1").appendTo("#charSelect");
             $("#agent1").css("background-color", "white");
             matrixState.userChosen = true;
@@ -150,14 +150,14 @@ $(document).ready(function () {
     $("#morpheus1").on("click", function () {
         ;
         if (matrixState.userChosen) {
-         
-            $('.char4').attr('src','assets/images/images.jpeg');
+
+            $('.char4').attr('src', 'assets/images/images.jpeg');
             $("#morpheus1").css("background-color", "red")
             $("#morpheus1").appendTo("#charEnemy");
 
         } else {
-          
-            $('.char4').attr('src','assets/images/images.jpeg');
+
+            $('.char4').attr('src', 'assets/images/images.jpeg');
             $("#morpheus1").appendTo("#charSelect");
             $("#morpheus1").css("background-color", "white");
             matrixState.userChosen = true;
@@ -166,7 +166,7 @@ $(document).ready(function () {
         $("#span4").remove();
 
     });
-    
+
     // idk();
 
 });
@@ -177,39 +177,39 @@ $(document).ready(function () {
 
 //         defenderLife = matrix.chosenLife;
 
-        
+
 //         // chosenCharacter = matrix.name;
 //         defenderLife--;
-        
-        
+
+
 //     });
 // }
 
 // function idk1() {
 //     $(".reset").on("click", function(){
 //         alert("hello");
-      
+
 //     });
 // }
 
 // idk1();
 
-$(".reset").on("click", function() {
-  alert("what");
+$(".reset").on("click", function () {
+    alert("what");
 })
 
 $(".attack").on("click", function () {
     // alert("why");
-  var cho = "";
-//   matrixState.chosenCharacter == matrix.name;
-//   for (i=0; i< matrix.length; i++) {
-//       matrix.indexOf(i);
-//   }
+    var cho = 0;
+    //   matrixState.chosenCharacter == matrix.name;
+    //   for (i=0; i< matrix.length; i++) {
+    //       matrix.indexOf(i);
+    //   }
 
-matrixState.chosenCharacter = matrix[0];
-cho= matrixState.chosenCharacter;
-//   matrix.chosenLife === matrixState.chosenLife;
-  
+    matrixState.chosenLife = matrix[0].startingLife;
+    cho = matrixState.chosenLife;
+    //   matrix.chosenLife === matrixState.chosenLife;
+
     console.log(cho);
     // getCharacter()
 })
@@ -242,6 +242,16 @@ function reset() {
 
 }
 
+
+// function attack() {
+//     var cho = 0;
+//     for (i=0; i<matrix.length)
+
+//     matrixState.chosenLife = matrix[0].startingLife;
+//     cho = matrixState.chosenLife;
+
+//     console.log(cho);
+// }
 
 
 // function initializeMatrix () {
