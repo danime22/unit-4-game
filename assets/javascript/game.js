@@ -2,8 +2,8 @@
 var matrix = [
     {
         name: "NEO",
-        startingAttack: 0,
-        enemyAttack: 0,
+        startingAttack: 3,
+        enemyAttack: 4,
         startingLife: 100,
         line: ""
 
@@ -11,8 +11,8 @@ var matrix = [
     },
     {
         name: "TRINITY",
-        startingAttack: 0,
-        enemyAttack: 0,
+        startingAttack: 3,
+        enemyAttack: 4,
         startingLife: 100,
         line: ""
 
@@ -21,8 +21,8 @@ var matrix = [
 
     {
         name: "AGENT SMITH",
-        startingAttack: 0,
-        enemyAttack: 0,
+        startingAttack: 3,
+        enemyAttack: 4,
         startingLife: 100,
         line: ""
 
@@ -30,8 +30,8 @@ var matrix = [
     },
     {
         name: "MORPHEUS",
-        startingAttack: 0,
-        enemyAttack: 0,
+        startingAttack: 3,
+        enemyAttack: 4,
         startingLife: 100,
         line: ""
 
@@ -43,26 +43,30 @@ var matrix = [
 
 var weapon = [
     {
-        weapon1: "gun1",
-        damage: 2,
+        weapon1:{
+            damage:2
+        }
+        
 
     },
     {
-        weapon1: "gun2",
-        damage: 7,
-
-
-    },
-    {
-        weapon1: "gun3",
-        damage: 8,
-
+        weapon1:{
+            damage: 2
+        }
+       
 
     },
     {
-        weapon1: "sword",
-        damage: 5,
-
+        weapon1: {
+            damage:2
+        }
+       
+    },
+    {
+        weapon1:{
+            damage:2
+        }
+     
     }
 ];
 //Global variables
@@ -90,7 +94,7 @@ $(document).ready(function () {
             $("#neo1").css("background-color", "red");
             $("#neo1").appendTo("#charEnemy");
             $('.char1').attr('src', 'assets/images/587655603d491111d0d3be249bfafa5c.png');
-
+            chosencha();
         } else {
 
             $("#neo1").appendTo("#charSelect");
@@ -101,6 +105,7 @@ $(document).ready(function () {
 
         }
         chosencha();
+        // chosenEnmey();
         setText();
         $("#span1").remove();
 
@@ -123,6 +128,7 @@ $(document).ready(function () {
             matrixState.userChosen = true;
         }
         chosencha();
+        // chosenEnmey();
         setText();
         $("#span2").remove();
 
@@ -145,6 +151,7 @@ $(document).ready(function () {
             matrixState.userChosen = true;
         }
         chosencha();
+        // chosenEnmey();
         setText();
         $("#span3").remove();
 
@@ -165,64 +172,35 @@ $(document).ready(function () {
             $("#morpheus1").css("background-color", "white");
             matrixState.userChosen = true;
         }
-        chosencha()
+        chosencha();
+    //    chosenEnmey();
         setText();
         $("#span4").remove();
 
     });
 
-    // idk();
-
 });
 
-// function idk() {
-//     $(".attack").on("click", function () {
-//         alert("hey");
 
-//         defenderLife = matrix.chosenLife;
+$(".attack").on("click", function () {
+ 
+    var title = matrix[matrixState.chosenLife].startingLife;
 
+   var damn = matrix[matrixState.chosenAttack].startingAttack;
 
-//         // chosenCharacter = matrix.name;
-//         defenderLife--;
+    var equal = title - damn;
 
+    console.log(equal);
 
-//     });
-// }
+    choosen()
 
-// function idk1() {
-//     $(".reset").on("click", function(){
-//         alert("hello");
-
-//     });
-// }
-
-// idk1();
-
-$(".reset").on("click", function () {
-    alert("what");
 })
+// not working yet! 
+function weap () {
+    var a = weapon.weapon1.damage;
 
-// $(".attack").on("click", function () {
-//     var cho = 0;
-//     matrixState.chosenLife = matrix[0].startingLife;
-//     cho = matrixState.chosenLife;
-//     console.log(cho);
-
-// })
-// function getCharacter() {
-//     var chosenCharacter = "";
-//     for (i=0; i<matrix.length; i++) {
-//         matrix.indexOf(i) >= 0;
-
-//     //     if(matrix.indexOf(i)>=0) {
-//     //         chosenCharacter+="";
-//     //     } else {
-//     //         chosenCharacter+=matrix.name[i];
-//     //     }
-//     // }
-
-//     return chosenCharacter;
-// }
+    console.log(a);
+}
 
 
 
@@ -235,52 +213,29 @@ function setText() {
 
 
 function chosencha() {
-    // var cho = "";
 
-    for (i = 0; i < matrix.length; i++) {
+    var title = matrix[matrixState.chosenLife].startingLife;
 
+    $("#charr").val(title);
 
-
-        matrixState.chosenLife = matrix[i].startingLife;
-        chocha = matrixState.chosenLife;
-
-        cho = $("#charr") + this.value;
-        cho = cho + chocha;
+}
 
 
+function chosenEnmey () {
+    var title = matrix[matrixState.defenderLife].startingLife;
 
-        // console.log (cho);
-
-        ch = $("#charr") + cho;
-        console.log(ch);
-    }
+    $("#charr").val(title);
 
 }
 
 
 
+function choosen() {
+    
+    var user = matrix.name[0];
 
-// function reset() {
+    console.log(user);
 
-// }
+}
 
-
-// function attack() {
-//     var cho = 0;
-//     for (i=0; i<matrix.length)
-
-//     matrixState.chosenLife = matrix[0].startingLife;
-//     cho = matrixState.chosenLife;
-
-//     console.log(cho);
-// }
-
-
-// function initializeMatrix () {
-//     var mat = matrix[matrixState.chosenLife].name;
-
-//     matrix.userChosen = true;
-//     matrixState.chosenLife
-
-// }
 
