@@ -82,8 +82,10 @@ var weapon =
 var matrixState = {
     chosenCharacter: null,
     chosenDefender: null,
+    defenderButtonId: "",
     userChosen: false,
-    fighting: false
+    fighting: false,
+    charactersDefeated: 0
 
 }
 
@@ -94,7 +96,7 @@ $(document).ready(function () {
 
     $("#neo1").on("click", function () {
         handleCharacterSelection(0, "#neo1", ".char1", "#span1");
-        handleWeaponSelection(weapon.machineGun);
+        // handleWeaponSelection(weapon.machineGun);
     });
 
     $("#trinity1").on("click", function () {
@@ -112,18 +114,42 @@ $(document).ready(function () {
 });
 
 
+$("#weapon1").on("click", function(){
+    handleWeaponSelection(weapon.machineGun);
+});
+$("#weapon2").on("click", function () {
+    handleWeaponSelection(weapon.pistol);
+});
+$("#weapon3").on("click", function () {
+    handleWeaponSelection(weapon.shotgun);
+});
+$("#weapon4").on("click", function () {
+    handleWeaponSelection(weapon.sword);
+});
+
+
+
+
 $(".attack").on("click", function () {
- 
-    l("attack");
-    l(matrixState.chosenCharacter.currentAttack);
-    matrixState.chosenCharacter.currentLife -= matrixState.chosenDefender.enemyAttack;
+
+    if(!matrixState.fighting)
+    {
+        return;
+    }  
+
     matrixState.chosenDefender.currentLife -= matrixState.chosenCharacter.currentAttack;
-    matrixState.chosenCharacter.currentAttack += (matrixState.chosenCharacter.startingAttack + matrixState.chosenCharacter.selectedWeapon.damage);
+    matrixState.chosenCharacter.currentAttack += matrixState.chosenCharacter.startingAttack;
+    if(matrixState.chosenCharacter.selectedWeapon != null)
+    {
+        matrixState.chosenCharacter.currentAttack += matrixState.chosenCharacter.selectedWeapon.damage;
+    }
     l(matrixState.chosenDefender.currentLife);
     setChosenLife();
     setDefenderLife();
 
-    checkForGameEnd();
+    if(!checkForGameEnd()){
+        matrixState.chosenCharacter.currentLife -= matrixState.chosenDefender.enemyAttack;
+    }
 
 
 //     var title = matrix[matrixState.chosenLife].startingLife;
@@ -145,11 +171,23 @@ function checkForGameEnd()
         alert("Fucking loser!");
         location.reload();
 
+
     } 
     else if(matrixState.chosenDefender.currentLife <= 0)
     {
-        // make them pick another character, or if more enemy pick another.
+        $(matrixState.defenderButtonId).remove();
+        matrixState.fighting = false;
+        matrixState.chosenDefender = null;
+        matrixState.charactersDefeated++;
+
+        if(matrixState.charactersDefeated == 3)
+        {
+            alert("You won badass");   
+        }
+        return true;
     }
+
+    return false;
 }
 
 function handleCharacterSelection(selectedCharIndex, charImageClassName, charButtonId, origSpanClass)
@@ -169,6 +207,7 @@ function handleCharacterSelection(selectedCharIndex, charImageClassName, charBut
         $(charImageClassName).appendTo("#charEnemy");
         $(charButtonId).attr('src', matrixState.chosenDefender.image);
         matrixState.fighting = true;
+        matrixState.defenderButtonId = charButtonId;
         setText("FIGHT!");
         setDefenderLife();
 
@@ -197,6 +236,7 @@ function handleWeaponSelection(selectedWeapon)
 {
     if(matrixState.chosenCharacter == null)
     {
+        alert("Fucking choose a character first dummy!");
         return;
     }
 
@@ -204,20 +244,11 @@ function handleWeaponSelection(selectedWeapon)
     matrixState.chosenCharacter.currentAttack += selectedWeapon.damage;
 }
 
-// not working yet! 
-function weap () {
-    var a = weapon.damage;
-
-    console.log(a);
-}
 
 
 
 function setText(text) {
-    $(".card-title").text(text);
-    $("#weapy").text("Choose your weapon");
-
-
+    $("#remaining").text(text);
 }
 
 
@@ -234,19 +265,10 @@ function setDefenderLife () {
 
 function getMeterValue(character)
 {
-    l(character.name + " | " + character.currentLife + " | " + character.startingLife);
     return Math.floor((character.currentLife / character.startingLife) * 100);
 }
 
 
-
-function choosen() {
-    
-    var user = matrix.name;
-
-    console.log(user);
-
-}
 
 function l(s)
 {
