@@ -85,7 +85,8 @@ var matrixState = {
     defenderButtonId: "",
     userChosen: false,
     fighting: false,
-    charactersDefeated: 0
+    charactersDefeated: 0,
+    defenderParagraphClass: ""
 
 }
 
@@ -96,13 +97,11 @@ $(document).ready(function () {
 
     $("#neo1").on("click", function () {
         handleCharacterSelection(0, "#neo1", ".char1", "#span1");
-        
-
-        // handleWeaponSelection(weapon.machineGun);
+ 
     });
 
     $("#trinity1").on("click", function () {
-        //handleCharacterSelection(1, "#trinity1", ".char2", "#span2");  
+   
         handleCharacterSelection(1, "#trinity1", ".char2", "#span2"); 
     });
 
@@ -174,6 +173,7 @@ function checkForGameEnd()
         $(matrixState.defenderButtonId).remove();
         matrixState.fighting = false;
         matrixState.chosenDefender = null;
+        $(matrixState.defenderParagraphClass).remove();
         matrixState.charactersDefeated++;
 
         if(matrixState.charactersDefeated == 3)
@@ -204,6 +204,8 @@ function handleCharacterSelection(selectedCharIndex, charImageClassName, charBut
         $(charButtonId).attr('src', matrixState.chosenDefender.image);
         matrixState.fighting = true;
         matrixState.defenderButtonId = charButtonId;
+        matrixState.defenderParagraphClass= charImageClassName;
+ 
         setText("FIGHT!");
         setDefenderLife();
 
@@ -271,20 +273,6 @@ function l(s)
     console.log(s);
 
 }
-
-
-// function audio() {
-//     var source = "assets/The Matrix  Soundtrack- Juno Reactor Vs Don Davis - Navras.mp3";
-//     var audio = $("#myAudio");
-    
-//     audio.addEventListener("click", function () {
-//         audio.play();
-    
-   
-
-
-// }
-
 
 
 
