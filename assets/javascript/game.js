@@ -3,18 +3,26 @@ var matrix = [
     {
         name: "NEO",
         startingAttack: 3,
-        enemyAttack: 4,
-        startingLife: 100,
-        line: ""
+        currentAttack: 3,
+        weapon: null,
+        enemyAttack: 15,
+        startingLife: 150,
+        currentLife: 150,
+        line: "",
+        image: 'assets/images/587655603d491111d0d3be249bfafa5c.png'
 
 
     },
     {
         name: "TRINITY",
         startingAttack: 3,
-        enemyAttack: 4,
+        currentAttack: 3,
+        weapon: null,
+        enemyAttack: 10,
         startingLife: 100,
-        line: ""
+        currentLife: 100,
+        line: "",
+        image: 'assets/images/images (1).jpeg'
 
 
     },
@@ -22,18 +30,26 @@ var matrix = [
     {
         name: "AGENT SMITH",
         startingAttack: 3,
-        enemyAttack: 4,
-        startingLife: 100,
-        line: ""
+        currentAttack: 3,
+        weapon: null,
+        enemyAttack: 25,
+        startingLife: 200,
+        currentLife: 200,
+        line: "",
+        image: 'assets/images/p1159_1.jpg'
 
 
     },
     {
         name: "MORPHEUS",
         startingAttack: 3,
-        enemyAttack: 4,
-        startingLife: 100,
-        line: ""
+        currentAttack: 3,
+        weapon: null,
+        enemyAttack: 15,
+        startingLife: 150,
+        currentLife: 150,
+        line: "",
+        image: 'assets/images/images.jpeg'
 
     }
 
@@ -41,44 +57,33 @@ var matrix = [
 ];
 
 
-var weapon = [
+
+var weapon = 
     {
-        weapon1:{
-            damage:2
-        }
+        machineGun:{
+            damage: 3
+        },
         
-
-    },
-    {
-        weapon1:{
+        pistol:{
             damage: 2
-        }
-       
+        },
 
-    },
-    {
-        weapon1: {
-            damage:2
-        }
+        shotgun: {
+            damage: 2
+        },
        
-    },
-    {
-        weapon1:{
-            damage:2
+        sword:{
+            damage: 1
         }
-     
-    }
-];
+   
+    };
 //Global variables
 
 var matrixState = {
-    chosenCharacter: "",
-    chosenDefender: "",
-    chosenLife: 0,
-    chosenAttack: 0,
-    defenderLife: 0,
-    defenderAttack: 0,
+    chosenCharacter: null,
+    chosenDefender: null,
     userChosen: false,
+    fighting: false
 
 }
 
@@ -88,95 +93,20 @@ $(document).ready(function () {
 
 
     $("#neo1").on("click", function () {
-
-        if (matrixState.userChosen) {
-
-            $("#neo1").css("background-color", "red");
-            $("#neo1").appendTo("#charEnemy");
-            $('.char1').attr('src', 'assets/images/587655603d491111d0d3be249bfafa5c.png');
-            chosencha();
-        } else {
-
-            $("#neo1").appendTo("#charSelect");
-
-            $("#neo1").css("background-color", "white");
-            $('.char1').attr('src', 'assets/images/587655603d491111d0d3be249bfafa5c.png');
-            matrixState.userChosen = true;
-
-        }
-        chosencha();
-        // chosenEnmey();
-        setText();
-        $("#span1").remove();
-
-
+        handleCharacterSelection(0, "#neo1", ".char1", "#span1");
+        handleWeaponSelection(weapon.machineGun);
     });
 
     $("#trinity1").on("click", function () {
-
-        if (matrixState.userChosen) {
-
-            $('.char2').attr('src', 'assets/images/images (1).jpeg');
-            $("#trinity1").css("background-color", "red");
-            $("#trinity1").appendTo("#charEnemy");
-
-        } else {
-
-            $('.char2').attr('src', 'assets/images/images (1).jpeg');
-            $("#trinity1").appendTo("#charSelect");
-            $("#trinity1").css("background-color", "white");
-            matrixState.userChosen = true;
-        }
-        chosencha();
-        // chosenEnmey();
-        setText();
-        $("#span2").remove();
-
+        handleCharacterSelection(1, "#trinity1", ".char2", "#span2");  
     });
 
     $("#agent1").on("click", function () {
-
-        if (matrixState.userChosen) {
-
-
-            $('.char3').attr('src', 'assets/images/p1159_1.jpg');
-            $("#agent1").css("background-color", "red");
-            $("#agent1").appendTo("#charEnemy");
-
-        } else {
-
-            $('.char3').attr('src', 'assets/images/p1159_1.jpg');
-            $("#agent1").appendTo("#charSelect");
-            $("#agent1").css("background-color", "white");
-            matrixState.userChosen = true;
-        }
-        chosencha();
-        // chosenEnmey();
-        setText();
-        $("#span3").remove();
-
+        handleCharacterSelection(2, "#agent1", ".char3", "#span3");
     });
 
     $("#morpheus1").on("click", function () {
-        ;
-        if (matrixState.userChosen) {
-
-            $('.char4').attr('src', 'assets/images/images.jpeg');
-            $("#morpheus1").css("background-color", "red")
-            $("#morpheus1").appendTo("#charEnemy");
-
-        } else {
-
-            $('.char4').attr('src', 'assets/images/images.jpeg');
-            $("#morpheus1").appendTo("#charSelect");
-            $("#morpheus1").css("background-color", "white");
-            matrixState.userChosen = true;
-        }
-        chosencha();
-    //    chosenEnmey();
-        setText();
-        $("#span4").remove();
-
+        handleCharacterSelection(3, "#morpheus1", ".char4", "#span4");
     });
 
 });
@@ -184,57 +114,143 @@ $(document).ready(function () {
 
 $(".attack").on("click", function () {
  
-    var title = matrix[matrixState.chosenLife].startingLife;
+    l("attack");
+    l(matrixState.chosenCharacter.currentAttack);
+    matrixState.chosenCharacter.currentLife -= matrixState.chosenDefender.enemyAttack;
+    matrixState.chosenDefender.currentLife -= matrixState.chosenCharacter.currentAttack;
+    matrixState.chosenCharacter.currentAttack += (matrixState.chosenCharacter.startingAttack + matrixState.chosenCharacter.selectedWeapon.damage);
+    l(matrixState.chosenDefender.currentLife);
+    setChosenLife();
+    setDefenderLife();
 
-   var damn = matrix[matrixState.chosenAttack].startingAttack;
+    checkForGameEnd();
 
-    var equal = title - damn;
 
-    console.log(equal);
+//     var title = matrix[matrixState.chosenLife].startingLife;
 
-    choosen()
+//    var damn = matrix[matrixState.chosenAttack].startingAttack;
+
+//     var equal = title - damn;
+
+//     console.log(equal);
+
+//     choosen()
 
 })
+
+function checkForGameEnd()
+{
+    if(matrixState.chosenCharacter.currentLife <= 0) // lose
+    {
+        alert("Fucking loser!");
+        location.reload();
+
+    } 
+    else if(matrixState.chosenDefender.currentLife <= 0)
+    {
+        // make them pick another character, or if more enemy pick another.
+    }
+}
+
+function handleCharacterSelection(selectedCharIndex, charImageClassName, charButtonId, origSpanClass)
+{
+    l("Starting");
+    if(matrixState.fighting)
+    {
+        l("returning");
+        return;
+    }
+
+    if (matrixState.userChosen) {
+        l("choosing defender");
+        matrixState.chosenDefender = matrix[selectedCharIndex];
+
+        $(charImageClassName).css("background-color", "red");
+        $(charImageClassName).appendTo("#charEnemy");
+        $(charButtonId).attr('src', matrixState.chosenDefender.image);
+        matrixState.fighting = true;
+        setText("FIGHT!");
+        setDefenderLife();
+
+    } else {
+        l("choosing char");
+        matrixState.chosenCharacter = matrix[selectedCharIndex];
+        $(charImageClassName).appendTo("#charSelect");
+
+        $(charImageClassName).css("background-color", "white");
+        $(charButtonId).attr('src', matrixState.chosenCharacter.image);
+        matrixState.userChosen = true;
+        setText("Choose Your Defender");
+        setChosenLife();
+    
+    }
+
+    l("setting state");
+    
+
+  
+    // chosenEnmey();
+    $(origSpanClass).remove();
+}
+
+function handleWeaponSelection(selectedWeapon)
+{
+    if(matrixState.chosenCharacter == null)
+    {
+        return;
+    }
+
+    matrixState.chosenCharacter.selectedWeapon = selectedWeapon;
+    matrixState.chosenCharacter.currentAttack += selectedWeapon.damage;
+}
+
 // not working yet! 
 function weap () {
-    var a = weapon.weapon1.damage;
+    var a = weapon.damage;
 
     console.log(a);
 }
 
 
 
-function setText() {
-    var set = $(".card-title").text("Choose Your Defender");
-    var weapy = $("#weapy").text("Choose your weapon");
+function setText(text) {
+    $(".card-title").text(text);
+    $("#weapy").text("Choose your weapon");
 
 
 }
 
 
-function chosencha() {
-
-    var title = matrix[matrixState.chosenLife].startingLife;
-
-    $("#charr").val(title);
+function setChosenLife() {
+    $("#charrChosen").val(getMeterValue(matrixState.chosenCharacter));
 
 }
 
+function setDefenderLife () {
 
-function chosenEnmey () {
-    var title = matrix[matrixState.defenderLife].startingLife;
+    $("#charrDefender").val(getMeterValue(matrixState.chosenDefender));
 
-    $("#charr").val(title);
+}
 
+function getMeterValue(character)
+{
+    l(character.name + " | " + character.currentLife + " | " + character.startingLife);
+    return Math.floor((character.currentLife / character.startingLife) * 100);
 }
 
 
 
 function choosen() {
     
-    var user = matrix.name[0];
+    var user = matrix.name;
 
     console.log(user);
+
+}
+
+function l(s)
+{
+    console.log(s);
 
 }
 
