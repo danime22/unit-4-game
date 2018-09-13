@@ -92,15 +92,18 @@ var matrixState = {
 
 $(document).ready(function () {
 
-
+    
 
     $("#neo1").on("click", function () {
         handleCharacterSelection(0, "#neo1", ".char1", "#span1");
+        
+
         // handleWeaponSelection(weapon.machineGun);
     });
 
     $("#trinity1").on("click", function () {
-        handleCharacterSelection(1, "#trinity1", ".char2", "#span2");  
+        //handleCharacterSelection(1, "#trinity1", ".char2", "#span2");  
+        handleCharacterSelection(1, "#trinity1", ".char2", "#span2"); 
     });
 
     $("#agent1").on("click", function () {
@@ -110,6 +113,8 @@ $(document).ready(function () {
     $("#morpheus1").on("click", function () {
         handleCharacterSelection(3, "#morpheus1", ".char4", "#span4");
     });
+
+
 
 });
 
@@ -132,6 +137,7 @@ $("#weapon4").on("click", function () {
 
 $(".attack").on("click", function () {
 
+    
     if(!matrixState.fighting)
     {
         return;
@@ -151,16 +157,6 @@ $(".attack").on("click", function () {
         matrixState.chosenCharacter.currentLife -= matrixState.chosenDefender.enemyAttack;
     }
 
-
-//     var title = matrix[matrixState.chosenLife].startingLife;
-
-//    var damn = matrix[matrixState.chosenAttack].startingAttack;
-
-//     var equal = title - damn;
-
-//     console.log(equal);
-
-//     choosen()
 
 })
 
@@ -275,5 +271,20 @@ function l(s)
     console.log(s);
 
 }
+
+
+// function audio() {
+//     var source = "assets/The Matrix  Soundtrack- Juno Reactor Vs Don Davis - Navras.mp3";
+//     var audio = $("#myAudio");
+    
+//     audio.addEventListener("click", function () {
+//         audio.play();
+    
+   
+
+
+// }
+
+
 
 

@@ -157,3 +157,7 @@ button {
 span {
     font-size: 17px;
 }
+
+#myAudio {
+    display: none;
+}
