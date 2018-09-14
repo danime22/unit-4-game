@@ -8,7 +8,7 @@ body {
 
 .row {
     border: 3px solid white;
-    /* background-color: #6CA03B; */
+
     margin-top: 3%;
 }
 
@@ -22,18 +22,14 @@ img {
 
 section {
     width: 100%;
-    /* height: 300%; */
+
     margin: 0 auto;
-    /* background-color: black; */
-    
-    /* float: none; 
-   opacity: 0.3;  */
+
 }
 
 .card {
     background: rgba(250,250,250,0.1)
-    /* opacity: 0.2; */
-    
+
 }
 
 
@@ -52,19 +48,6 @@ section {
     background: rgba(0, 0, 0, 0.7);
 }
 
-/* .card-body {
-    /* background: rgba(51,51,51,0.2) */
-    /* opacity: 0.3;; */
-    /* content: ""; */
-    /* position: absolute; */
-    /* z-index: 1;
-   
-    
-    opacity: 0.2; */
-
-
-
-
 
 
 .neo, .trinity, .morpheus, .agent {
@@ -76,7 +59,7 @@ section {
     margin-top: 2px;
     color: white;
     font-weight: bold;
-    /* font-family: 'Baloo Tammudu', cursive; */
+ 
     font-family: 'Vollkorn', serif;
 font-family: 'Audiowide', cursive;
 
@@ -92,7 +75,7 @@ font-family: 'Audiowide', cursive;
     width: 120px;
     padding: 5px;
     height: 40px;
-    /* font-family: 'Baloo Tammudu', cursive; */
+ 
     font-family: 'Vollkorn', serif;
 font-family: 'Audiowide', cursive;
 
@@ -117,7 +100,7 @@ background-color:#447717;
 width: 90px;
 border-radius: 5px;
 color: aliceblue;
-/* font-family: 'Baloo Tammudu', cursive; */
+
 font-family: 'Vollkorn', serif;
 font-family: 'Audiowide', cursive;
 margin-left: -65%;
@@ -129,7 +112,7 @@ margin-left: -65%;
 width: 90px;
 border-radius: 5px;
 color: aliceblue;
-/* font-family: 'Baloo Tammudu', cursive; */
+
 font-family: 'Vollkorn', serif;
 font-family: 'Audiowide', cursive;
 }
@@ -160,4 +143,8 @@ span {
 
 #myAudio {
     display: none;
+}
+
+#weapy {
+    margin-left: 2%;
 }

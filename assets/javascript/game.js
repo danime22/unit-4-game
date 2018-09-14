@@ -61,19 +61,24 @@ var matrix = [
 var weapon = 
     {
         machineGun:{
-            damage: 3
+            damage: 3,
+            name: "MACHINE GUN"
         },
         
         pistol:{
-            damage: 2
+            damage: 2,
+            name: "PISTOL"
         },
 
         shotgun: {
-            damage: 2
+            damage: 2,
+            name: "SHOTGUN"
+
         },
        
         sword:{
-            damage: 1
+            damage: 1,
+            name: "SWORD"
         }
    
     };
@@ -93,11 +98,9 @@ var matrixState = {
 
 $(document).ready(function () {
 
-    
-
     $("#neo1").on("click", function () {
         handleCharacterSelection(0, "#neo1", ".char1", "#span1");
- 
+
     });
 
     $("#trinity1").on("click", function () {
@@ -120,6 +123,7 @@ $(document).ready(function () {
 
 $("#weapon1").on("click", function(){
     handleWeaponSelection(weapon.machineGun);
+   
 });
 $("#weapon2").on("click", function () {
     handleWeaponSelection(weapon.pistol);
@@ -214,10 +218,12 @@ function handleCharacterSelection(selectedCharIndex, charImageClassName, charBut
         matrixState.chosenCharacter = matrix[selectedCharIndex];
         $(charImageClassName).appendTo("#charSelect");
 
-        $(charImageClassName).css("background-color", "white");
+        $(charImageClassName).css("background-color", "green");
         $(charButtonId).attr('src', matrixState.chosenCharacter.image);
         matrixState.userChosen = true;
         setText("Choose Your Defender");
+        var audio = new Audio('assets/The Matrix  Soundtrack- Juno Reactor Vs Don Davis - Navras.mp3');
+        audio.play();
         setChosenLife();
     
     }
@@ -225,8 +231,6 @@ function handleCharacterSelection(selectedCharIndex, charImageClassName, charBut
     l("setting state");
     
 
-  
-    // chosenEnmey();
     $(origSpanClass).remove();
 }
 
@@ -240,6 +244,8 @@ function handleWeaponSelection(selectedWeapon)
 
     matrixState.chosenCharacter.selectedWeapon = selectedWeapon;
     matrixState.chosenCharacter.currentAttack += selectedWeapon.damage;
+    
+    alert("You Selected:" + selectedWeapon.name);
 }
 
 
