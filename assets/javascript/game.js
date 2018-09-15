@@ -8,7 +8,7 @@ var matrix = [
         enemyAttack: 15,
         startingLife: 150,
         currentLife: 150,
-        line: "",
+        line: "I know you're out there. I can feel you now!",
         image: 'assets/images/587655603d491111d0d3be249bfafa5c.png'
 
 
@@ -21,7 +21,7 @@ var matrix = [
         enemyAttack: 10,
         startingLife: 100,
         currentLife: 100,
-        line: "",
+        line: "Dodge this!",
         image: 'assets/images/images (1).jpeg'
 
 
@@ -35,7 +35,7 @@ var matrix = [
         enemyAttack: 25,
         startingLife: 200,
         currentLife: 200,
-        line: "",
+        line: "I'm going to be honest with you. I hate this place!",
         image: 'assets/images/p1159_1.jpg'
 
 
@@ -48,7 +48,7 @@ var matrix = [
         enemyAttack: 15,
         startingLife: 150,
         currentLife: 150,
-        line: "",
+        line: "This is your last chance. After this, there is no turning back!",
         image: 'assets/images/images.jpeg'
 
     }
@@ -58,30 +58,30 @@ var matrix = [
 
 
 
-var weapon = 
-    {
-        machineGun:{
-            damage: 3,
-            name: "MACHINE GUN"
-        },
-        
-        pistol:{
-            damage: 2,
-            name: "PISTOL"
-        },
+var weapon =
+{
+    machineGun: {
+        damage: 3,
+        name: "Machine Gun"
+    },
 
-        shotgun: {
-            damage: 2,
-            name: "SHOTGUN"
+    pistol: {
+        damage: 2,
+        name: "Pistol"
+    },
 
-        },
-       
-        sword:{
-            damage: 1,
-            name: "SWORD"
-        }
-   
-    };
+    shotgun: {
+        damage: 2,
+        name: "Shotgun"
+
+    },
+
+    sword: {
+        damage: 1,
+        name: "Sword"
+    }
+
+};
 //Global variables
 
 var matrixState = {
@@ -100,12 +100,13 @@ $(document).ready(function () {
 
     $("#neo1").on("click", function () {
         handleCharacterSelection(0, "#neo1", ".char1", "#span1");
+        
 
     });
 
     $("#trinity1").on("click", function () {
-   
-        handleCharacterSelection(1, "#trinity1", ".char2", "#span2"); 
+
+        handleCharacterSelection(1, "#trinity1", ".char2", "#span2");
     });
 
     $("#agent1").on("click", function () {
@@ -121,18 +122,18 @@ $(document).ready(function () {
 });
 
 
-$("#weapon1").on("click", function(){
-    handleWeaponSelection(weapon.machineGun);
-   
+$("#weapon1").on("click", function () {
+    handleWeaponSelection(weapon.machineGun, "#wazz1", "#weapon1");
+
 });
 $("#weapon2").on("click", function () {
-    handleWeaponSelection(weapon.pistol);
+    handleWeaponSelection(weapon.pistol, "#wazz2", "#weapon2");
 });
 $("#weapon3").on("click", function () {
-    handleWeaponSelection(weapon.shotgun);
+    handleWeaponSelection(weapon.shotgun, "#wazz3", "#weapon3");
 });
 $("#weapon4").on("click", function () {
-    handleWeaponSelection(weapon.sword);
+    handleWeaponSelection(weapon.sword, "#wazz4", "#weapon4");
 });
 
 
@@ -140,49 +141,46 @@ $("#weapon4").on("click", function () {
 
 $(".attack").on("click", function () {
 
-    
-    if(!matrixState.fighting)
-    {
+
+    if (!matrixState.fighting) {
         return;
-    }  
+    }
 
     matrixState.chosenDefender.currentLife -= matrixState.chosenCharacter.currentAttack;
     matrixState.chosenCharacter.currentAttack += matrixState.chosenCharacter.startingAttack;
-    if(matrixState.chosenCharacter.selectedWeapon != null)
-    {
+    if (matrixState.chosenCharacter.selectedWeapon != null) {
         matrixState.chosenCharacter.currentAttack += matrixState.chosenCharacter.selectedWeapon.damage;
     }
     l(matrixState.chosenDefender.currentLife);
     setChosenLife();
     setDefenderLife();
 
-    if(!checkForGameEnd()){
+    if (!checkForGameEnd()) {
         matrixState.chosenCharacter.currentLife -= matrixState.chosenDefender.enemyAttack;
+
     }
 
 
 })
 
-function checkForGameEnd()
-{
-    if(matrixState.chosenCharacter.currentLife <= 0) // lose
+function checkForGameEnd() {
+    if (matrixState.chosenCharacter.currentLife <= 0) // lose
     {
-        alert("Fucking loser!");
+        alert("NICE TRY!");
         location.reload();
 
 
-    } 
-    else if(matrixState.chosenDefender.currentLife <= 0)
-    {
+    }
+    else if (matrixState.chosenDefender.currentLife <= 0) {
         $(matrixState.defenderButtonId).remove();
+
         matrixState.fighting = false;
         matrixState.chosenDefender = null;
         $(matrixState.defenderParagraphClass).remove();
         matrixState.charactersDefeated++;
-
-        if(matrixState.charactersDefeated == 3)
-        {
-            alert("You won badass");   
+        setText("Choose Your Defender");
+        if (matrixState.charactersDefeated == 3) {
+            alert("YOU WON!");
         }
         return true;
     }
@@ -190,15 +188,13 @@ function checkForGameEnd()
     return false;
 }
 
-function handleCharacterSelection(selectedCharIndex, charImageClassName, charButtonId, origSpanClass)
-{
+function handleCharacterSelection(selectedCharIndex, charImageClassName, charButtonId, origSpanClass) {
     l("Starting");
-    if(matrixState.fighting)
-    {
+    if (matrixState.fighting) {
         l("returning");
         return;
     }
-
+    alert(matrix[selectedCharIndex].line);
     if (matrixState.userChosen) {
         l("choosing defender");
         matrixState.chosenDefender = matrix[selectedCharIndex];
@@ -208,8 +204,8 @@ function handleCharacterSelection(selectedCharIndex, charImageClassName, charBut
         $(charButtonId).attr('src', matrixState.chosenDefender.image);
         matrixState.fighting = true;
         matrixState.defenderButtonId = charButtonId;
-        matrixState.defenderParagraphClass= charImageClassName;
- 
+        matrixState.defenderParagraphClass = charImageClassName;
+
         setText("FIGHT!");
         setDefenderLife();
 
@@ -225,27 +221,32 @@ function handleCharacterSelection(selectedCharIndex, charImageClassName, charBut
         var audio = new Audio('assets/The Matrix  Soundtrack- Juno Reactor Vs Don Davis - Navras.mp3');
         audio.play();
         setChosenLife();
-    
+
     }
 
     l("setting state");
-    
+
 
     $(origSpanClass).remove();
 }
 
-function handleWeaponSelection(selectedWeapon)
-{
-    if(matrixState.chosenCharacter == null)
-    {
-        alert("Fucking choose a character first dummy!");
+function handleWeaponSelection(selectedWeapon, weaponClass, weaponId) {
+    if (matrixState.chosenCharacter == null) {
+        alert("Choose your character first!");
         return;
     }
 
+    if (matrixState.chosenCharacter.selectedWeapon != null) {
+        return;
+    }
     matrixState.chosenCharacter.selectedWeapon = selectedWeapon;
     matrixState.chosenCharacter.currentAttack += selectedWeapon.damage;
-    
-    alert("You Selected:" + selectedWeapon.name);
+
+    $(weaponClass).css("background-color", "#003B1F");
+    // $(weaponClass).width(100);
+    $(weaponId).height(150);
+    $(weaponId).width(150);
+    $("#weapy").text(selectedWeapon.name + " Selected " );
 }
 
 
@@ -261,21 +262,19 @@ function setChosenLife() {
 
 }
 
-function setDefenderLife () {
+function setDefenderLife() {
 
     $("#charrDefender").val(getMeterValue(matrixState.chosenDefender));
 
 }
 
-function getMeterValue(character)
-{
+function getMeterValue(character) {
     return Math.floor((character.currentLife / character.startingLife) * 100);
 }
 
 
 
-function l(s)
-{
+function l(s) {
     console.log(s);
 
 }
